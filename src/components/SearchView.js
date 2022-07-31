@@ -21,24 +21,24 @@ const MovieCard = ({ movie }) => {
 }
 
 const SearchView = ({ keyword, searchResults }) => {
-    const title = `You are searching for ${keyword}`;
+  const title = `You are searching for ${keyword}`;
 
-    const resultsHtml = searchResults.map((obj, i) => {
-      return <MovieCard movie={obj} key={i} />
-    }) 
+  const resultsHtml = searchResults.map((obj, i) => {
+    return <MovieCard movie={obj} key={i} />
+  }) 
 
-    return (
-      <>
-        <Hero text={title} />
-        {resultsHtml &&
-          <div className="container">
-            <div className="row">
-              {resultsHtml};
-            </div>
+  return (
+    <>
+      <Hero text={title} />
+      {resultsHtml &&
+        <div className="container">
+          <div className="row">
+            {resultsHtml};
           </div>
-        } 
-      </>
-    )
-  }
+        </div>
+      } 
+    </>
+  )
+}
 
 export default SearchView; 
