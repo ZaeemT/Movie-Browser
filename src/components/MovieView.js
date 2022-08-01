@@ -28,16 +28,25 @@ const MovieView = () => {
             return <Hero text="Loading..." />
         }
         if(movieDetails) {
-            //TODO: deal with a possible missing image.
-            const posterPath = `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
-            const backdropUrl = `https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`
+            const posterPath = `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`;
+            const backdropUrl = `https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`;
+            const altImageUrl = "https://images.unsplash.com/photo-1563459094091-026377f7148b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
+
             return (
                 <>
                     <Hero text={movieDetails.original_title} backdrop={backdropUrl} />
                     <div className="container my-5">
                         <div className="row">
                             <div className="col-md-3">
-                                <img src={posterPath} alt="..." className="img-fluid shadow rounded" />                                
+                                <img 
+                                    src={posterPath} 
+                                    onError = {({currentTarget}) => {
+                                        currentTarget.onerror = null;
+                                        currentTarget.src = altImageUrl;
+                                    }}
+                                    alt="..." 
+                                    className="img-fluid shadow rounded" 
+                                />                                
                             </div>
                             <div className="col-md-8 ps-5">
                                 <h2>{movieDetails.original_title}</h2>
