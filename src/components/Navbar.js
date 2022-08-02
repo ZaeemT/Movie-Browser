@@ -17,13 +17,6 @@ const Navbar = ({ searchText, setSearchText }) => {
     }
   } 
 
-  // var input = document.getElementById("my-Input");
-  // input.addEventListener('keyup', (e) => {
-  //   if (e.key === "Enter") {
-  //     e.preventDefault();
-  //     document.getElementById("search-btn").click();  
-  //   }
-  // })
 
   return (
     <nav className ="navbar navbar-expand-lg bg-light border-bottom border-3 sticky-top">
@@ -41,7 +34,7 @@ const Navbar = ({ searchText, setSearchText }) => {
             <Link className ="nav-link" to="/about">About</Link>
           </li>
           <li className ="nav-item">
-            <Link className ="nav-link disabled" to="/">Disabled</Link>
+            <Link className ="nav-link disabled" to="/">TV Shows</Link>
           </li>
           </ul>
           <form className="d-flex" role="search">
