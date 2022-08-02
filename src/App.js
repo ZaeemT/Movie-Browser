@@ -7,6 +7,7 @@ import SearchView from './components/SearchView';
 import MovieView from './components/MovieView';
 import PageNotFound from './components/PageNotFound';
 import { Routes, Route } from 'react-router-dom';
+import SearchingView from './components/SearchingView';
   
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />  
         <Route path="/about" element={<AboutView />} />
-        <Route path="/search" element={<SearchView keyword={searchText} searchResults={searchResults} />} />
+        <Route path="/search" element={<SearchingView keyword={searchText} />} />
         <Route path="/search/:searchText" element={<SearchView keyword={searchText} searchResults={searchResults} />} />
         <Route path="/movies/:id" element={<MovieView />} />
         <Route path="*" element={<PageNotFound />} />

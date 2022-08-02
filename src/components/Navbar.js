@@ -5,12 +5,20 @@ const Navbar = ({ searchText, setSearchText }) => {
   const searchUrl = `/search/${searchText}`;
   const navigate = useNavigate();
   const updateSearchText = (e) => {
-    navigate(searchUrl);
-    setSearchText(e.target.value);
+    // TODO: add smth like if statment...
+    if (e.key === "Enter") {
+      e.preventDefault();
+      document.getElementById("search-btn").click(); 
+      navigate(searchUrl); 
+    }
+    else {
+      navigate(`/search`);
+      setSearchText(e.target.value);
+    }
   } 
 
   // var input = document.getElementById("my-Input");
-  // input.addEventListener("keypress", function(e) {
+  // input.addEventListener('keyup', (e) => {
   //   if (e.key === "Enter") {
   //     e.preventDefault();
   //     document.getElementById("search-btn").click();  
@@ -38,7 +46,9 @@ const Navbar = ({ searchText, setSearchText }) => {
           </ul>
           <form className="d-flex" role="search">
             <input className="form-control me-2" id="my-Input" type="search" placeholder="Search" aria-label="Search" value={searchText} onChange={updateSearchText}/>
-            <Link to={searchUrl} className="btn btn-outline-success" id="search-btn" type="submit">Search</Link>
+            <Link to={searchUrl} >
+              <button className="btn btn-outline-success" id="search-btn" type="submit">Search</button> 
+            </Link>
           </form>
         </div>
       </div>

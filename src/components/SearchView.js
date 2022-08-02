@@ -30,7 +30,7 @@ const MovieCard = ({ movie }) => {
 }
 
 const SearchView = ({ keyword, searchResults }) => {
-  const title = `You are searching for ${keyword}`;
+  const title = `You searched for ${keyword}`;
 
   const resultsHtml = searchResults.map((obj, i) => {
     return <MovieCard movie={obj} key={i} />
