@@ -23,6 +23,16 @@ const MovieView = () => {
             })
     }, [id])
 
+    // function getCountries() {
+    //     return (
+    //         <>
+    //             for(let x=0; x < movieDetails.length(); x++) {
+    //                 <p className="lead">{movieDetails.production_countries[x].name}, </p>
+    //             }
+    //         </>
+    //     )
+    // }
+
     function renderMovieDetail() {
         if(isLoading) {
             return <Hero text="Loading..." />
@@ -50,7 +60,16 @@ const MovieView = () => {
                             </div>
                             <div className="col-md-8 ps-5">
                                 <h2>{movieDetails.original_title}</h2>
-                                <p className="lead">{movieDetails.overview}</p>
+                                <p className="lead"><strong>Overview: </strong>{movieDetails.overview}</p>
+                                <p className="lead"><strong>Status: </strong>{movieDetails.status}</p>
+                                <p className="lead"><strong>Released date: </strong>{movieDetails.release_date}</p>
+                                <p className="lead"><strong>Country: </strong>
+                                    {/* {{for(let x=0; x < {movieDetails.production_countries}.length; x++){
+                                        <p>{movieDetails.production_countries[x].name}, </p>
+                                    }}} */}
+                                </p>
+
+                                
                             </div>
                         </div>
                     </div>
