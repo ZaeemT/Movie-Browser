@@ -23,16 +23,7 @@ const MovieView = () => {
             })
     }, [id])
 
-    // function getCountries() {
-    //     return (
-    //         <>
-    //             for(let x=0; x < movieDetails.length(); x++) {
-    //                 <p className="lead">{movieDetails.production_countries[x].name}, </p>
-    //             }
-    //         </>
-    //     )
-    // }
-
+    
     function renderMovieDetail() {
         if(isLoading) {
             return <Hero text="Loading..." />
@@ -41,6 +32,10 @@ const MovieView = () => {
             const posterPath = `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`;
             const backdropUrl = `https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`;
             const altImageUrl = "https://images.unsplash.com/photo-1563459094091-026377f7148b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
+            
+            const getGenres = movieDetails.genres.map(genre => {
+                return <>{genre.name}, </>
+            })
 
             return (
                 <>
@@ -63,13 +58,9 @@ const MovieView = () => {
                                 <p className="lead"><strong>Overview: </strong>{movieDetails.overview}</p>
                                 <p className="lead"><strong>Status: </strong>{movieDetails.status}</p>
                                 <p className="lead"><strong>Released date: </strong>{movieDetails.release_date}</p>
-                                <p className="lead"><strong>Country: </strong>
-                                    {/* {{for(let x=0; x < {movieDetails.production_countries}.length; x++){
-                                        <p>{movieDetails.production_countries[x].name}, </p>
-                                    }}} */}
-                                </p>
-
-                                
+                                <p className="lead"><strong>Country: </strong>{movieDetails.production_countries[0].name}</p>
+                                <p className="lead"><strong>Genres: </strong>{getGenres}</p>
+                                <p className="lead"><strong>Rating: </strong>{movieDetails.vote_average}</p>
                             </div>
                         </div>
                     </div>
