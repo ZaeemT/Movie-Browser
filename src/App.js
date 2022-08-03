@@ -34,13 +34,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />  
-        <Route path="/about" element={<AboutView />} />
-        <Route path="/search" element={<SearchingView keyword={searchText} />} />
-        <Route path="/search/:searchText" element={<SearchView keyword={searchText} searchResults={searchResults} />} />
-        <Route path="/movies/:id" element={<MovieView />} />
+        <Route path="about" element={<AboutView />} />
+        <Route path="search" element={<SearchingView keyword={searchText} />} />
+        <Route path="search/:searchText" element={<SearchView keyword={searchText} searchResults={searchResults} />} />
+        <Route path="movies/:id" element={<MovieView />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      
     </div>
   );
 }
